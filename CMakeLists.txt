@@ -9,6 +9,9 @@ if(NOT f08submod)
   return()
 endif()
 
+add_executable(hier grandchild.f90 child.f90 parent.f90)
+add_test(NAME Hierarchy COMMAND hier)
+
 add_executable(basic basic.f90 basic_sub.f90)
 add_test(NAME BasicSubmod COMMAND basic)
 

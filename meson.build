@@ -11,6 +11,9 @@ endif
 minimal = executable('minimal', 'minimal.f90')
 test('Minimal same-file submodule', minimal)
 
+hier = executable('hier', ['parent.f90', 'child.f90', 'grandchild.f90'])
+test('Hierarchal submodule', hier)
+
 basic = executable('basic', ['basic.f90', 'basic_sub.f90'])
 test('Basic Submodule 2 files', basic)
 
