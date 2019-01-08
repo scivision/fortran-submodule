@@ -1,15 +1,15 @@
 module b
 interface
-module subroutine d
-end subroutine d
+  module subroutine d
+  end subroutine d
 end interface
-end
+end module b
 
 submodule (b) c
 contains
 module procedure d
-end
-end
+end procedure d
+end submodule c
 
 program a
-end
+end program

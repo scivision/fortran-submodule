@@ -24,7 +24,6 @@ matrix:
     - brew install gcc > /dev/null
     - brew upgrade cmake > /dev/null
   - os: windows
-    language: sh
     install: 
     - cd bin
     - cmake -G "MinGW Makefiles" -DCMAKE_SH="CMAKE_SH-NOTFOUND" ..
