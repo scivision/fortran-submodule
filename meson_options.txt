@@ -1,0 +1,1 @@
+option('FAIL', type : 'boolean', value: false, description : 'use options that fail compilation due to bugs')
