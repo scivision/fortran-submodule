@@ -6,7 +6,7 @@ FAIL = get_option('FAIL')
 
 fc = meson.get_compiler('fortran')
 if fc.get_id() == 'gcc'
-  add_global_arguments('-Wall', '-Wextra', '-Wpedantic', language : 'fortran')
+  add_global_arguments('-fimplicit-none', '-Wall', '-Wextra', '-Wpedantic', language : 'fortran')
 endif
 
 minimal = executable('minimal', 'minimal.f90')
