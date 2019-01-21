@@ -17,18 +17,12 @@ explicit = executable('explicit', 'explicit.f90')
 test('Explicit procedure in submodule', explicit)
 endif
 
-# Meson at least through 0.49 does not support submodule in separate files
-if FAIL
 hier = executable('hier', ['parent.f90', 'child.f90', 'grandchild.f90'])
 test('Hierarchal submodule', hier)
 
 points = executable('points', ['points.f90', 'geo.f90'])
 test('another 2 file example', points)
 
-basic = executable('basic', ['basic.f90', 'basic_sub.f90'])
+basic = executable('basic', 'basic.f90', 'basic_sub.f90')
 test('Basic Submodule 2 files', basic)
-endif
-
-
-
 

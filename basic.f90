@@ -15,11 +15,12 @@ end module demo
 
 
 program sm
-
+use, intrinsic :: iso_fortran_env, only: compiler_version
 use demo
 
 call hello(pi, tau)
 
+print *, compiler_version()
 print *,'pi=',pi, 'tau=', tau
 
 end program
