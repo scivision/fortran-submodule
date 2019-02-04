@@ -1,8 +1,5 @@
 project('Fortran Submodule', 'fortran',
   version : '1.0.0')
-# https://github.com/mesonbuild/meson/issues/4704
-
-FAIL = get_option('FAIL')
 
 fc = meson.get_compiler('fortran')
 if fc.get_id() == 'gcc'
@@ -12,12 +9,10 @@ endif
 minimal = executable('minimal', 'minimal.f90')
 test('Minimal same-file submodule', minimal)
 
-if FAIL  # Cmake at least through 3.13 and Meson at least through 0.49 can't handle explicit submodule procedures
-explicit = executable('explicit', 'explicit.f90')
-test('Explicit procedure in submodule', explicit)
-endif
+repeat = executable('repeated', 'repeated.f90', 'repeated_child.f90')
+test('Repeated interface in submodule', repeat)
 
-hier = executable('hier', ['parent.f90', 'child.f90', 'grandchild.f90'])
+hier = executable('hier', ['parent.f90', 'child.f90', 'grandchild.f90', 'greatgrandchild.f90'])
 test('Hierarchal submodule', hier)
 
 points = executable('points', ['points.f90', 'geo.f90'])

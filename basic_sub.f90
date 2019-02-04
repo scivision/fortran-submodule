@@ -1,10 +1,10 @@
-submodule (demo) hi
+submodule (mother) daughter
 
 contains
 
-module procedure hello
-  tau = 2*pi
-end procedure hello
+module procedure pi2tau
+  pi2tau = 2*pi
+end procedure pi2tau
 
-end submodule hi
+end submodule daughter
 

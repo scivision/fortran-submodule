@@ -1,26 +1,23 @@
-module demo
+module mother
 real, parameter :: pi = 4.*atan(1.)
 real :: tau
 
 interface
-  module subroutine hello(pi,tau)
-    real, intent(in) :: pi
-    real, intent(out) :: tau
-  end subroutine hello
+module real elemental function pi2tau(pi)
+  real, intent(in) :: pi
+end function pi2tau
 end interface
 
 contains 
 
-end module demo
+end module mother
 
 
-program sm
-use, intrinsic :: iso_fortran_env, only: compiler_version
-use demo
+program hier1
+use mother
 
-call hello(pi, tau)
+tau = pi2tau(pi)
 
-print *, compiler_version()
 print *,'pi=',pi, 'tau=', tau
 
 end program

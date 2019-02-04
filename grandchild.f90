@@ -3,11 +3,11 @@ submodule (parent:child) grandchild
 
 contains
 
-module procedure higkid
+module procedure hi2
 
 print *,"I'm a grandchild, pi=",pi
 
-end procedure higkid
+end procedure hi2
 
 
 end submodule grandchild
