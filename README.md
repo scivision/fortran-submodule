@@ -6,10 +6,11 @@ Examples of modern Fortran 2008 submodule, for Meson and CMake.
 
 
 ## Build
-Meson at least through version 0.49 is not yet `submodule` aware.
+Meson 0.50 gained `submodule`.
 
-CMake Fortran `submodule` works for GNU and Intel, but is broken for PGI and Flang at least through CMake 3.13 due to the distinct Fortran `submodule 
-[file naming convention](https://www.scivision.co/fortran-compiler-submodule-file-naming/).
+CMake Fortran `submodule` distinct Fortran `submodule 
+[file naming convention](https://www.scivision.co/fortran-compiler-submodule-file-naming/)
+was fixed in CMake 3.14.
 
 ## Notes
 
