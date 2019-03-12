@@ -1,5 +1,5 @@
 project('Fortran Submodule', 'fortran',
-  version : '1.0.0')
+  version : '1.0.0', meson_version : '>=0.50')
 
 fc = meson.get_compiler('fortran')
 fcid = fc.get_id()
