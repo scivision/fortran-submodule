@@ -8,3 +8,6 @@ end procedure pi2tau
 
 end submodule daughter
 
+
+submodule (mother) mother
+end submodule mother

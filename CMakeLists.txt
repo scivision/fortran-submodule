@@ -19,11 +19,17 @@ add_test(NAME BasicSubmod COMMAND basic)
 add_executable(points_basic points_basic.f90 geo_basic.f90)
 add_test(NAME BasicPoints COMMAND points_basic)
 
-add_executable(new points.f90 geo.f90)
-add_test(NAME PointsNew COMMAND new)
+set(basic_submod PGI Flang) # FIXME probably fixed after Flang 7 and PGI 18.10
+if(NOT CMAKE_Fortran_COMPILER_ID IN_LIST basic_submod)
+  add_executable(new points.f90 geo.f90)
+  add_test(NAME PointsNew COMMAND new)
 
-add_executable(old points.f90 geo_legacy.f90)
-add_test(NAME PointsOld COMMAND old)
+  add_executable(old points.f90 geo_legacy.f90)
+  add_test(NAME PointsOld COMMAND old)
+endif()
+
+add_executable(minimal minimal.f90)
+add_test(NAME minimal COMMAND minimal)
 
 if(FAIL)
 add_executable(repeated repeated.f90 repeated_child.f90)
