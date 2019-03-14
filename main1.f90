@@ -7,4 +7,4 @@ REAL :: b
 CALL mince(1.,b)
 PRINT *, b
 
-END PROGRAM main
+END PROGRAM
