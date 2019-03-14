@@ -31,6 +31,9 @@ endif()
 add_executable(minimal minimal.f90)
 add_test(NAME minimal COMMAND minimal)
 
+add_executable(overspec main1.f90 parent1.f90 child1.f90)
+add_test(NAME OverSpec COMMAND overspec)
+
 if(FAIL)
 add_executable(repeated repeated.f90 repeated_child.f90)
 endif(FAIL)

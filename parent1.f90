@@ -1,0 +1,13 @@
+MODULE parent
+  IMPLICIT NONE
+
+  INTERFACE
+
+    MODULE PURE SUBROUTINE mince( a, b )
+      REAL, INTENT(IN)  :: a
+      REAL, INTENT(OUT) :: b
+    END SUBROUTINE mince
+
+  END INTERFACE
+
+END MODULE parent

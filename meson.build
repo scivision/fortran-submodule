@@ -7,10 +7,8 @@ if fcid == 'gcc'
   add_global_arguments('-fimplicit-none', '-Wextra', '-Wpedantic', language : 'fortran')
 endif
 
-if fcid != 'gcc'  # bugs at least through GCC-8 in general
-  minimal = executable('minimal', 'minimal.f90')
-  test('Minimal same-file submodule', minimal)
-endif
+minimal = executable('minimal', 'minimal.f90')
+test('Minimal same-file submodule', minimal)
 
 repeat = executable('repeated', 'repeated.f90', 'repeated_child.f90')
 test('Repeated interface in submodule', repeat)
@@ -26,3 +24,5 @@ endif
 basic = executable('basic', 'basic.f90', 'basic_sub.f90')
 test('Basic Submodule 2 files', basic)
 
+overspec = executable('overspec', 'main1.f90', 'parent1.f90', 'child1.f90')
+test('Overspecified', overspec)
