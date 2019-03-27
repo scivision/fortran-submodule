@@ -9,7 +9,7 @@ Examples of modern Fortran 2008 submodule, for Meson and CMake.
 Meson 0.50 gained `submodule`.
 
 CMake Fortran `submodule` distinct Fortran `submodule 
-[file naming convention](https://www.scivision.co/fortran-compiler-submodule-file-naming/)
+[file naming convention](https://www.scivision.dev/fortran-compiler-submodule-file-naming/)
 was fixed in CMake 3.14.
 
 ## Notes
