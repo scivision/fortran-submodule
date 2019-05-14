@@ -1,4 +1,4 @@
-submodule (points) geo
+submodule (points_basic) geo
 contains
 
 module procedure point_dist

@@ -1,4 +1,4 @@
-module points
+module points_basic
 implicit none
 
 interface
@@ -7,24 +7,19 @@ real, intent(in) :: ax, ay, bx, by
 end function point_dist
 end interface
 
-end module points
+end module points_basic
 
 
 use, intrinsic :: iso_fortran_env, only: stderr=>error_unit
-use points, only: point_dist
+use points_basic, only: point_dist
 implicit none
 
-real :: dist, ax, ay, bx, by
+real :: dist
 
-ax = 1.
-ay = 1.
-bx = 3.
-by = 5.
-
-dist = point_dist(ax,ay,bx,by)
+dist = point_dist(1.,1., 3.,5.)
 
 print *,'distance', dist
 
-if (abs(dist-4.47213602) >= 1e-5) error stop 'excessive error in computation'
+if (abs(dist - 4.47213602) >= 1e-5) error stop 'excessive error in computation'
 
 end program

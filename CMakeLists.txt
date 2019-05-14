@@ -18,9 +18,6 @@ add_test(NAME BasicPoints COMMAND points_basic)
 add_executable(new points.f90 geo.f90)
 add_test(NAME PointsNew COMMAND new)
 
-add_executable(old points.f90 geo_legacy.f90)
-add_test(NAME PointsOld COMMAND old)
-
 add_executable(minimal minimal.f90)
 add_test(NAME minimal COMMAND minimal)
 
