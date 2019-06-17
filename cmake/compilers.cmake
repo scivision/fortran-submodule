@@ -1,5 +1,3 @@
-message(STATUS "CMake Build Type: ${CMAKE_BUILD_TYPE}")
-
 if(CMAKE_Fortran_COMPILER_ID STREQUAL Intel)
   if(NOT WIN32)
     set(FFLAGS -stand f18 -implicitnone -traceback -warn -heap-arrays)
