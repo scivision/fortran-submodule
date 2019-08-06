@@ -1,11 +1,21 @@
 project('Fortran Submodule', 'fortran',
   version : '1.0.0',
-  meson_version : '>=0.50')
+  meson_version : '>=0.50',
+  default_options :  ['default_library=static', 'buildtype=release'])
 
 fc = meson.get_compiler('fortran')
 fcid = fc.get_id()
 if fcid == 'gcc'
-  add_global_arguments('-fimplicit-none', '-Wextra', '-Wpedantic', language : 'fortran')
+  add_project_arguments('-fimplicit-none', '-Wextra', '-Wpedantic', language : 'fortran')
+  if fc.version().version_compare('>=8')
+    add_project_arguments('-std=f2018', language : 'fortran')
+  endif
+elif fcid == 'intel'
+  add_project_arguments('-warn', '-heap-arrays', '-stand f18', language : 'fortran')
+elif fcid == 'intel-cl'
+  add_project_arguments('/warn', '/heap-arrays', '/stand:f18', language : 'fortran')
+elif fcid == 'pgi'
+  add_project_arguments('-C', '-Mdclchk', language : 'fortran')
 endif
 
 hier = executable('hier', ['parent.f90', 'child.f90', 'greatgrandchild.f90', 'grandchild.f90'])
