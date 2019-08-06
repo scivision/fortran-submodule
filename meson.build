@@ -12,8 +12,10 @@ if fcid == 'gcc'
   endif
 elif fcid == 'intel'
   add_project_arguments('-warn', '-heap-arrays', '-stand f18', language : 'fortran')
+  quiet = ['-nowarn']
 elif fcid == 'intel-cl'
   add_project_arguments('/warn', '/heap-arrays', '/stand:f18', language : 'fortran')
+  quiet = ['/nowarn']
 elif fcid == 'pgi'
   add_project_arguments('-C', '-Mdclchk', language : 'fortran')
 endif
