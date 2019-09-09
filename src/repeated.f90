@@ -6,10 +6,10 @@ module parent
 interface
   module real function realf()
   end function
-  
+
   module pure real function prealf()
   end function
-  
+
 end interface
 
 end module parent

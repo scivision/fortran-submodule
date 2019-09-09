@@ -8,7 +8,7 @@ module real elemental function pi2tau(pi)
 end function pi2tau
 end interface
 
-contains 
+contains
 
 end module mother
 
