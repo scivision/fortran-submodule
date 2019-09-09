@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/scivision/fortran-submodule.svg?branch=master)](https://travis-ci.com/scivision/fortran-submodule)
+[![Actions Status](https://github.com/scivision/fortran-submodule/workflows/ci/badge.svg)](https://github.com/scivision/fortran-submodule/actions)
 
 # Fortran Submodule
 
