@@ -1,4 +1,6 @@
-[![Actions Status](https://github.com/scivision/fortran-submodule/workflows/ci/badge.svg)](https://github.com/scivision/fortran-submodule/actions)
+[![Actions Status](https://github.com/scivision/fortran-submodule/workflows/ci_cmake/badge.svg)](https://github.com/scivision/fortran-submodule/actions)
+[![Actions Status](https://github.com/scivision/fortran-submodule/workflows/ci_meson/badge.svg)](https://github.com/scivision/fortran-submodule/actions)
+
 
 # Fortran Submodule
 

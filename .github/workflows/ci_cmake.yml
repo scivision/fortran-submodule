@@ -1,0 +1,22 @@
+name: ci_cmake
+
+on:
+  push:
+    paths-ignore:
+      - "**/*.md"
+  pull_request:
+    paths-ignore:
+      - "**/*.md"
+
+jobs:
+
+  windows:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v1
+    - run: cmake -B build -G "MinGW Makefiles" -DCMAKE_SH="CMAKE_SH-NOTFOUND"
+      env:
+        FC: gfortran
+    - run: cmake --build build --parallel
+    - run: ctest -V
+      working-directory: build
