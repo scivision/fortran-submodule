@@ -16,3 +16,24 @@ elif fcid == 'intel-cl'
 endif
 
 subdir('src')
+
+hier = executable('hier', hier_src)
+test('Hierarchal submodule', hier)
+
+basic = executable('basic', basic_src)
+test('Basic Submodule 2 files', basic)
+
+points_basic = executable('points_basic', points_basic_src)
+test('Points Basic', points_basic)
+
+points = executable('points', points_src)
+test('Points', points)
+
+minimal = executable('minimal', minimal_src)
+test('Minimal same-file submodule', minimal)
+
+repeat = executable('repeated', repeat_src)
+test('Repeated interface in submodule', repeat)
+
+overspec = executable('overspec', overspec_src)
+test('Overspecified', overspec)

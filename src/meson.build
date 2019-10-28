@@ -1,21 +1,13 @@
-hier = executable('hier', ['parent.f90', 'child.f90', 'greatgrandchild.f90', 'grandchild.f90'])
-test('Hierarchal submodule', hier)
+hier_src = files('parent.f90', 'child.f90', 'greatgrandchild.f90', 'grandchild.f90')
 
-basic = executable('basic', 'basic.f90', 'basic_sub.f90')
-test('Basic Submodule 2 files', basic)
+basic_src = files('basic.f90', 'basic_sub.f90')
 
-points_basic = executable('points_basic', 'points_basic.f90', 'geo_basic.f90')
-test('Points Basic', points_basic)
+points_basic_src = files('points_basic.f90', 'geo_basic.f90')
 
-points = executable('points', ['points.f90', 'geo.f90'])
-test('Points', points)
+points_src = files('points.f90', 'geo.f90')
 
-minimal = executable('minimal', 'minimal.f90')
-test('Minimal same-file submodule', minimal)
+minimal_src = files('minimal.f90')
 
-repeat = executable('repeated', 'repeated.f90', 'repeated_child.f90')
-test('Repeated interface in submodule', repeat)
+repeat_src = files('repeated.f90', 'repeated_child.f90')
 
-
-overspec = executable('overspec', 'main1.f90', 'parent1.f90', 'child1.f90')
-test('Overspecified', overspec)
+overspec_src = files('main1.f90', 'parent1.f90', 'child1.f90')
