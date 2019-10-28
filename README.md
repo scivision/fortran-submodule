@@ -15,6 +15,18 @@ meson build
 meson test -C build
 ```
 
+OR
+
+```sh
+cmake -B build
+
+cmake --build build --parallel
+
+cd build
+
+ctest -V
+```
+
 ## Notes
 
 * Steve Lionel (Intel) submodule [discussion](https://software.intel.com/en-us/blogs/2015/07/07/doctor-fortran-in-we-all-live-in-a-yellow-submodule)

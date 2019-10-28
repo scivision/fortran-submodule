@@ -18,6 +18,10 @@ add_executable(minimal minimal.f90)
 add_test(NAME SameFileMinimal COMMAND minimal)
 set_target_properties(minimal PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 
+add_library(ext external.f90)  # for demoing external projects
+set_target_properties(ext PROPERTIES
+  ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}
+  LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 
 if(FAIL)
 # This is a bug with CMake even though 3.15

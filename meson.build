@@ -37,3 +37,5 @@ test('Repeated interface in submodule', repeat)
 
 overspec = executable('overspec', overspec_src)
 test('Overspecified', overspec)
+
+ext_lib = library('ext', ext_src)  # for subproject demo

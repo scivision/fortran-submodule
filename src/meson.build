@@ -11,3 +11,5 @@ minimal_src = files('minimal.f90')
 repeat_src = files('repeated.f90', 'repeated_child.f90')
 
 overspec_src = files('main1.f90', 'parent1.f90', 'child1.f90')
+
+ext_src = files('external.f90')
