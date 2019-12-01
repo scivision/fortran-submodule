@@ -1,13 +1,9 @@
 project('Fortran Submodule', 'fortran',
   version : '1.0.0',
   meson_version : '>=0.51.2',
-  default_options :  ['default_library=static', 'buildtype=release', 'warning_level=3'])
+  default_options :  ['default_library=static', 'buildtype=release', 'warning_level=3', 'fortran_std=f2018'])
 
 fc = meson.get_compiler('fortran')
-
-std18 = fc.first_supported_argument(['-std=f2018', '-stand f18', '/stand:f18'])
-impnone = fc.first_supported_argument(['-fimplicit-none', '/warn:declarations', '-warn declarations', '-Mdclchk'])
-add_project_arguments(impnone, std18, language : 'fortran')
 
 subdir('src')
 
