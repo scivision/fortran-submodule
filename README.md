@@ -1,5 +1,6 @@
 # Fortran Submodule
 
+[![DOI](https://zenodo.org/badge/163894637.svg)](https://zenodo.org/badge/latestdoi/163894637)
 [![Actions Status](https://github.com/scivision/fortran-submodule/workflows/ci_cmake/badge.svg)](https://github.com/scivision/fortran-submodule/actions)
 [![Actions Status](https://github.com/scivision/fortran-submodule/workflows/ci_meson/badge.svg)](https://github.com/scivision/fortran-submodule/actions)
 
