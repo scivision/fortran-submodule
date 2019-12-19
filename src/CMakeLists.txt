@@ -34,9 +34,8 @@ set_target_properties(ext PROPERTIES
   LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}
   Fortran_MODULE_DIRECTORY ${CMAKE_BINARY_DIR})
 
-if(FAIL)
-# This is a bug with CMake even though 3.15
-add_executable(repeated repeated.f90 repeated_child.f90)
+
+add_executable(repeated parent2.f90 child2.f90)
 add_test(NAME Repeated COMMAND repeated)
 set_target_properties(repeated PROPERTIES
   RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}
@@ -47,5 +46,3 @@ add_test(NAME OverSpecified COMMAND overspec)
 set_target_properties(overspec PROPERTIES
   RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}
   Fortran_MODULE_DIRECTORY ${CMAKE_BINARY_DIR})
-
-endif(FAIL)

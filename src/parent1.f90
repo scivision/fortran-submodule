@@ -1,13 +1,11 @@
-MODULE parent
-  IMPLICIT NONE
+module parent1
+implicit none
 
-  INTERFACE
+interface
+module pure subroutine negate(a, b)
+integer, intent(in)  :: a
+integer, intent(out) :: b
+end subroutine negate
+end interface
 
-    MODULE PURE SUBROUTINE mince( a, b )
-      REAL, INTENT(IN)  :: a
-      REAL, INTENT(OUT) :: b
-    END SUBROUTINE mince
-
-  END INTERFACE
-
-END MODULE parent
+end module parent1

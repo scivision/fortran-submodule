@@ -1,11 +1,9 @@
+# Fortran Submodule
+
 [![Actions Status](https://github.com/scivision/fortran-submodule/workflows/ci_cmake/badge.svg)](https://github.com/scivision/fortran-submodule/actions)
 [![Actions Status](https://github.com/scivision/fortran-submodule/workflows/ci_meson/badge.svg)](https://github.com/scivision/fortran-submodule/actions)
 
-
-# Fortran Submodule
-
-Examples of modern Fortran 2008 submodule, for Meson and CMake.
-
+Examples of modern Fortran 2008 `submodule`, using Meson or CMake.
 
 ## Build
 

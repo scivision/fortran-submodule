@@ -8,7 +8,7 @@ points_src = files('points.f90', 'geo.f90')
 
 minimal_src = files('minimal.f90')
 
-repeat_src = files('repeated.f90', 'repeated_child.f90')
+repeat_src = files('parent2.f90', 'child2.f90')
 
 overspec_src = files('main1.f90', 'parent1.f90', 'child1.f90')
 

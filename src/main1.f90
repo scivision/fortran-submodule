@@ -1,10 +1,10 @@
 
-USE parent
+use parent1, only : negate
+implicit none
 
-IMPLICIT NONE
-REAL :: b
+integer :: b
 
-CALL mince(1.,b)
-PRINT *, b
+call negate(1, b)
+if (b /= -1) error stop 'should have gotten -1 = -1'
 
-END PROGRAM
+end program

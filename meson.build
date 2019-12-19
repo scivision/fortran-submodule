@@ -1,7 +1,7 @@
 project('Fortran Submodule', 'fortran',
   version : '1.0.0',
   meson_version : '>=0.51.2',
-  default_options :  ['default_library=static', 'buildtype=release', 'warning_level=3', 'fortran_std=f2018'])
+  default_options :  ['default_library=static', 'buildtype=release', 'warning_level=3'])
 
 fc = meson.get_compiler('fortran')
 

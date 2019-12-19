@@ -1,10 +1,10 @@
-SUBMODULE(parent) child
-  IMPLICIT NONE
+submodule(parent1) child1
+implicit none
 
-CONTAINS
+contains
 
-  MODULE procedure mince
-    b = -a
-  END procedure mince
+module procedure negate
+b = -a
+end procedure negate
 
-END SUBMODULE child
+end submodule child1

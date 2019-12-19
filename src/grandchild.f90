@@ -1,4 +1,4 @@
-submodule (parent:child) grandchild
+submodule (parent_hier:child_hier) grandchild_hier
 
 
 contains
@@ -10,4 +10,4 @@ print *,"I'm a grandchild, pi=",pi
 end procedure hi2
 
 
-end submodule grandchild
+end submodule grandchild_hier
