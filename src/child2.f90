@@ -2,12 +2,12 @@ submodule (parent) child
 
 contains
 
-module real function realf()
-realf = 0.
-end
+module integer function intf()
+intf = 2
+end function intf
 
-module pure real function prealf()
-prealf = 0.
-end
+module pure integer function pintf()
+pintf = 3
+end function pintf
 
 end submodule child

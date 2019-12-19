@@ -4,20 +4,20 @@
 module parent
 
 interface
-  module real function realf()
-  end function
+module integer function intf()
+end function intf
 
-  module pure real function prealf()
-  end function
-
+module pure integer function pintf()
+end function pintf
 end interface
 
 end module parent
 
 
-
 program cmake_check
+use parent, only : intf, pintf
+implicit none
 
-use parent
+if (intf() + 1 /= pintf()) error stop 'incorrect integer values'
 
 end program
