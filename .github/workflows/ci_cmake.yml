@@ -32,9 +32,9 @@ jobs:
     - run: |
         sudo apt -yq update
         sudo apt install -yq --no-install-recommends gfortran
-    - run: |
-        mkdir build
-        cmake -B build
+    - run: mkdir build
+    - run: cmake ..
+      working-directory: build
       env:
         FC: gfortran
     - run: cmake --build build --parallel
