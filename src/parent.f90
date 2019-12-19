@@ -11,8 +11,6 @@ module subroutine hi3()
 end subroutine hi3
 end interface
 
-contains
-
 end module parent_hier
 
 
