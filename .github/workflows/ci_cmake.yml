@@ -2,11 +2,13 @@ name: ci_cmake
 
 on:
   push:
-    paths-ignore:
-      - "**/*.md"
+    paths:
+      - "**/*.f90"
+      - ".github/workflows/ci_cmake.yml"
   pull_request:
-    paths-ignore:
-      - "**/*.md"
+    paths:
+      - "**/*.f90"
+      - ".github/workflows/ci_cmake.yml"
 
 jobs:
 
@@ -14,7 +16,25 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v1
+    - run: cmake --version
     - run: cmake -B build -G "MinGW Makefiles" -DCMAKE_SH="CMAKE_SH-NOTFOUND"
+      env:
+        FC: gfortran
+    - run: cmake --build build --parallel
+    - run: ctest -V
+      working-directory: build
+
+  linux:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - run: cmake --version
+    - run: |
+        sudo apt -yq update
+        sudo apt install -yq --no-install-recommends gfortran
+    - run: |
+        mkdir build
+        cmake -B build
       env:
         FC: gfortran
     - run: cmake --build build --parallel

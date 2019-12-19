@@ -2,11 +2,13 @@ name: ci_meson
 
 on:
   push:
-    paths-ignore:
-      - "**/*.md"
+    paths:
+      - "**/*.f90"
+      - ".github/workflows/ci_meson.yml"
   pull_request:
-    paths-ignore:
-      - "**/*.md"
+    paths:
+      - "**/*.f90"
+      - ".github/workflows/ci_meson.yml"
 
 jobs:
 
@@ -17,11 +19,14 @@ jobs:
     - uses: actions/setup-python@v1
       with:
         python-version: '3.x'
-    - run: pip install meson
-    - run: sudo apt install -yq --no-install-recommends ninja-build gfortran
+    - run: pip install meson ninja
+    - run: |
+        sudo apt -yq update
+        sudo apt install -yq --no-install-recommends gfortran
     - run: meson setup build
       env:
         FC: gfortran
+    - run: ninja -C build
     - run: meson test -C build -v
     - uses: actions/upload-artifact@v1
       if: failure()
