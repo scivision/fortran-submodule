@@ -11,13 +11,20 @@ Fortran submodules allow easy switching in and out of features and extremely fas
 
 ## Build
 
+Meson and CMake are two build systems that support Fortran submodule.
+
+### Meson
+
 ```sh
 meson build
 
 meson test -C build
 ```
 
-OR
+
+### CMake
+
+CMake 3.12 or newer is required to use Fortran submodule.
 
 ```sh
 cmake -B build
