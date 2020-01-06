@@ -5,6 +5,9 @@
 [![Actions Status](https://github.com/scivision/fortran-submodule/workflows/ci_meson/badge.svg)](https://github.com/scivision/fortran-submodule/actions)
 
 Examples of modern Fortran 2008 `submodule`, using Meson or CMake.
+Fortran submodules are a unique concept distinct from C++.
+Fortran submodules allow easy switching in and out of features and extremely fast recompilation of large programs perhaps 100 times or more faster.
+
 
 ## Build
 
