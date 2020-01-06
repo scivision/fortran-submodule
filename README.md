@@ -7,6 +7,12 @@
 Examples of modern Fortran 2008 `submodule`, using Meson or CMake.
 Fortran submodules are a unique concept distinct from C++.
 Fortran submodules allow easy switching in and out of features and extremely fast recompilation of large programs perhaps 100 times or more faster.
+For example a program's file IO could use raw binary, HDF5, or NetCDF switched using Fortran submodule.
+A simulation could have different proprietary or open source modules switched in and out via Fortran submodule.
+
+In general, Fortran compilers have good submodule support.
+This includes gfortran, Intel ifort, nagfor, flang, PGI, IBM, Cray, etc.
+
 
 
 ## Build
