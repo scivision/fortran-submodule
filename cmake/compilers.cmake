@@ -1,3 +1,9 @@
+if(NOT PROJECT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
+  # this will NOT return for ExternalProject
+  # this will return for FetchContent
+  return()
+endif()
+
 if(CMAKE_Fortran_COMPILER_ID STREQUAL Intel)
   if(NOT WIN32)
     set(FFLAGS -stand f18 -traceback -warn -heap-arrays)
