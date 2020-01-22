@@ -19,14 +19,16 @@ jobs:
     - uses: actions/setup-python@v1
       with:
         python-version: '3.x'
-    - run: pip install meson ninja
+    - run: pip install -r requirements.txt
     - run: |
         sudo apt -yq update
         sudo apt install -yq --no-install-recommends gfortran
+
     - run: meson setup build
       env:
         FC: gfortran
     - run: ninja -C build
+
     - run: meson test -C build -v
     - uses: actions/upload-artifact@v1
       if: failure()

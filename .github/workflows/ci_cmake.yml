@@ -16,11 +16,12 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v1
-    - run: cmake --version
+
     - run: cmake -B build -G "MinGW Makefiles" -DCMAKE_SH="CMAKE_SH-NOTFOUND"
       env:
         FC: gfortran
     - run: cmake --build build --parallel
+
     - run: ctest -V
       working-directory: build
 
@@ -28,15 +29,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - run: cmake --version
+    - uses: actions/setup-python@v1
+      with:
+        python-version: '3.x'
+
+    - run: pip install cmake
     - run: |
-        sudo apt -yq update
-        sudo apt install -yq --no-install-recommends gfortran
-    - run: mkdir build
-    - run: cmake ..
-      working-directory: build
-      env:
-        FC: gfortran
+        sudo apt -yq update > /dev/null
+        sudo apt install -yq --no-install-recommends gfortran > /dev/null
+
+    - run: cmake -B build
     - run: cmake --build build --parallel
+
     - run: ctest -V
       working-directory: build
