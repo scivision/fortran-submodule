@@ -5,7 +5,7 @@ endif()
 
 project(f2008submod
   LANGUAGES Fortran
-  VERSION 1.1.2
+  VERSION 1.2.0
   HOMEPAGE_URL https://github.com/scivision/fortran-submodule
   DESCRIPTION "examples of Fortran 2008 submodule")
 

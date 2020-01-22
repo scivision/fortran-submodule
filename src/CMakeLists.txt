@@ -7,22 +7,20 @@ add_test(NAME PointsNew COMMAND new)
 add_executable(minimal minimal.f90)
 add_test(NAME SameFileMinimal COMMAND minimal)
 
+add_library(math_const math_const.f90)  # for demoing external projects
 
-set(_targets hier new minimal)
-
-foreach(x ${_targets})
+foreach(x IN ITEMS hier new minimal math_const)
 target_include_directories(${x} INTERFACE ${CMAKE_CURRENT_BINARY_DIR}/include)
 set_target_properties(${x} PROPERTIES
   Fortran_MODULE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/include)
 endforeach()
 
-add_library(ext external.f90)  # for demoing external projects
-set_target_properties(ext PROPERTIES
-  Fortran_MODULE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/include)
+set(_broken_gen "MinGW Makefiles" "Unix Makefiles")
 
-if(false)
-# CMake bug, at least through 3.16.2
-# may work with Ninja but not Makefiles?
+if(CMAKE_GENERATOR IN_LIST _broken_gen)
+  message(STATUS "CMake at least through 3.16.3 and Make have a bug with this Fortran Syntax. CMake + Ninja works OK.")
+  return()
+endif()
 
 add_executable(repeated parent2.f90 child2.f90)
 add_test(NAME Repeated COMMAND repeated)
@@ -35,5 +33,3 @@ add_test(NAME BasicPoints COMMAND points_basic)
 
 add_executable(overspec main1.f90 parent1.f90 child1.f90)
 add_test(NAME OverSpecified COMMAND overspec)
-
-endif()
