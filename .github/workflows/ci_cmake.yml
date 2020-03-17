@@ -6,20 +6,17 @@ on:
       - "**/*.f90"
       - ".github/workflows/ci_cmake.yml"
   pull_request:
-    paths:
-      - "**/*.f90"
-      - ".github/workflows/ci_cmake.yml"
+  release:
 
 jobs:
 
   windows:
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
 
-    - run: cmake -B build -G "MinGW Makefiles" -DCMAKE_SH="CMAKE_SH-NOTFOUND"
-      env:
-        FC: gfortran
+    - run: cinst -y ninja
+    - run: cmake -B build -G Ninja
     - run: cmake --build build --parallel
 
     - run: ctest -V
@@ -28,7 +25,7 @@ jobs:
   linux:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - uses: actions/setup-python@v1
       with:
         python-version: '3.x'

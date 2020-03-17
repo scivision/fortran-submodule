@@ -6,23 +6,21 @@ on:
       - "**/*.f90"
       - ".github/workflows/ci_meson.yml"
   pull_request:
-    paths:
-      - "**/*.f90"
-      - ".github/workflows/ci_meson.yml"
+  release:
 
 jobs:
 
   linux:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - uses: actions/setup-python@v1
       with:
         python-version: '3.x'
     - run: pip install -r requirements.txt
     - run: |
         sudo apt -yq update
-        sudo apt install -yq --no-install-recommends gfortran
+        sudo apt install -yq --no-install-recommends gfortran ninja-build
 
     - run: meson setup build
       env:
