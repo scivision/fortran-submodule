@@ -5,8 +5,7 @@ on:
     paths:
       - "**/*.f90"
       - ".github/workflows/ci_cmake.yml"
-  pull_request:
-  release:
+
 
 jobs:
 
@@ -22,20 +21,16 @@ jobs:
     - run: ctest -V
       working-directory: build
 
+
   linux:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/setup-python@v1
-      with:
-        python-version: '3.x'
-
-    - run: pip install cmake
-    - run: |
-        sudo apt -yq update > /dev/null
-        sudo apt install -yq --no-install-recommends gfortran > /dev/null
 
     - run: cmake -B build
+      env:
+        FC: gfortran-9
+
     - run: cmake --build build --parallel
 
     - run: ctest -V

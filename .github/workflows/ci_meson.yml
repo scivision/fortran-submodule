@@ -5,8 +5,7 @@ on:
     paths:
       - "**/*.f90"
       - ".github/workflows/ci_meson.yml"
-  pull_request:
-  release:
+
 
 jobs:
 
@@ -14,18 +13,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/setup-python@v1
+    - uses: actions/setup-python@v2
       with:
         python-version: '3.x'
-    - run: pip install -r requirements.txt
-    - run: |
-        sudo apt -yq update
-        sudo apt install -yq --no-install-recommends gfortran ninja-build
+
+    - run: pip install meson ninja
 
     - run: meson setup build
       env:
-        FC: gfortran
-    - run: ninja -C build
+        FC: gfortran-9
+
+    - run: meson compile -C build
 
     - run: meson test -C build -v
     - uses: actions/upload-artifact@v1
