@@ -18,7 +18,7 @@ This includes gfortran, Intel ifort, nagfor, flang, PGI, IBM, Cray, etc.
 Meson and CMake are two build systems that support Fortran submodule.
 Look inside each example to understand basic use of Fortran submodule.
 
-### CMake
+CMake builds and tests by:
 
 ```sh
 ctest -S setup.cmake -V
