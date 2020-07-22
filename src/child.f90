@@ -1,5 +1,6 @@
 submodule (parent_hier) child_hier
 
+implicit none
 real, parameter :: pi=4.*atan(1.)
 
 contains

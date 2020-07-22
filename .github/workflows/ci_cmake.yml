@@ -14,12 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - run: cinst -y ninja
-    - run: cmake -B build -G Ninja
-    - run: cmake --build build --parallel
-
-    - run: ctest -V
-      working-directory: build
+    - run: ctest -S setup.cmake -VV
 
 
   linux:
@@ -27,11 +22,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - run: cmake -B build
+    - run: ctest -S setup.cmake -VV
       env:
         FC: gfortran-9
-
-    - run: cmake --build build --parallel
-
-    - run: ctest -V
-      working-directory: build

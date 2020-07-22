@@ -1,5 +1,7 @@
 submodule (mother) daughter
 
+implicit none
+
 contains
 
 module procedure pi2tau

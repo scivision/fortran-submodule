@@ -1,4 +1,6 @@
 module mother
+
+implicit none
 real, parameter :: pi = 4.*atan(1.)
 real :: tau
 

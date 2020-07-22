@@ -1,22 +1,28 @@
 module points
-  type :: point
-    real :: x, y
-  end type point
 
-  interface
-     module function point_dist(a, b) result(distance)
-       class(point), intent(in) :: a, b
-       real :: distance
-     end function point_dist
-  end interface
+implicit none
+
+type :: point
+real :: x, y
+end type point
+
+interface
+module function point_dist(a, b) result(distance)
+class(point), intent(in) :: a, b
+real :: distance
+end function point_dist
+end interface
 end module points
 
 
 submodule (points) geo
+implicit none
+
 contains
-  module procedure point_dist
-    distance = hypot(a%x - b%x, a%y - b%y)
-  end procedure point_dist
+
+module procedure point_dist
+distance = hypot(a%x - b%x, a%y - b%y)
+end procedure point_dist
 end submodule geo
 
 

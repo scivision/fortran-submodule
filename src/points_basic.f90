@@ -1,4 +1,5 @@
 module points_basic
+
 implicit none
 
 interface
@@ -10,6 +11,7 @@ end interface
 end module points_basic
 
 
+program test_points_basic
 use, intrinsic :: iso_fortran_env, only: stderr=>error_unit
 use points_basic, only: point_dist
 implicit none

@@ -1,4 +1,5 @@
 submodule(parent1) child1
+
 implicit none
 
 contains

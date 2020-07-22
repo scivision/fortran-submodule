@@ -1,4 +1,7 @@
 submodule (points_basic) geo
+
+implicit none
+
 contains
 
 module procedure point_dist

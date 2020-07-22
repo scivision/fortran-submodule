@@ -3,6 +3,8 @@
 
 module parent
 
+implicit none
+
 interface
 module integer function intf()
 end function intf

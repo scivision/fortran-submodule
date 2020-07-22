@@ -1,5 +1,6 @@
 submodule (parent_hier:child_hier) grandchild_hier
 
+implicit none
 
 contains
 

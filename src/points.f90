@@ -1,5 +1,7 @@
 module points
+
 implicit none
+
 type :: point
 real :: x, y
 end type point
@@ -12,7 +14,7 @@ end interface
 
 end module points
 
-
+program tests_points
 use, intrinsic :: iso_fortran_env, only: stderr=>error_unit
 use points, only: point, point_dist
 implicit none

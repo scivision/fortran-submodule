@@ -1,5 +1,7 @@
 submodule (parent_hier:grandchild_hier) greatgrandchild_hier
 
+implicit none
+
 contains
 
 module procedure hi3

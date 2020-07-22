@@ -1,5 +1,7 @@
 submodule (parent) child
 
+implicit none
+
 contains
 
 module integer function intf()

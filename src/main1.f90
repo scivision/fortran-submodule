@@ -1,5 +1,8 @@
 
+program main1
+
 use parent1, only : negate
+
 implicit none
 
 integer :: b
