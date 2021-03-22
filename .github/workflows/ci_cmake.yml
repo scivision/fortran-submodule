@@ -9,19 +9,16 @@ on:
 
 jobs:
 
-  windows:
-    runs-on: windows-latest
+  basic:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+
     steps:
     - uses: actions/checkout@v2
 
-    - run: ctest -S setup.cmake -VV
-
-
-  linux:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-
-    - run: ctest -S setup.cmake -VV
-      env:
-        FC: gfortran-9
+    - run: cmake -B build
+    - run: cmake --build build
+    - run: ctest -V
+      working-directory: build
