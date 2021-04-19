@@ -21,7 +21,8 @@ Look inside each example to understand basic use of Fortran submodule.
 CMake builds and tests by:
 
 ```sh
-ctest -S setup.cmake -V
+cmake -B build
+cmake --build build
 ```
 
 ### Meson

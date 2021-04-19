@@ -20,5 +20,4 @@ jobs:
 
     - run: cmake -B build
     - run: cmake --build build
-    - run: ctest -V
-      working-directory: build
+    - run: ctest --test-dir build -V

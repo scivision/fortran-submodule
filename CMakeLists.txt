@@ -8,6 +8,4 @@ project(f2008submod
 
 include(CTest)
 
-include(cmake/compilers.cmake)
-
 add_subdirectory(src)
