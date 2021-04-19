@@ -1,3 +1,8 @@
+include(CheckFortranSourceCompiles)
+
+file(READ same.f90 src)
+check_fortran_source_compiles(${src} same_name SRC_EXT f90)
+
 add_executable(hier grandchild.f90 child.f90 parent.f90 greatgrandchild.f90)
 add_test(NAME Hierarchal COMMAND hier)
 
@@ -15,16 +20,6 @@ set_target_properties(${x} PROPERTIES
   Fortran_MODULE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/include)
 endforeach()
 
-set(_broken_gen "MinGW Makefiles" "Unix Makefiles")
-
-if(CMAKE_GENERATOR IN_LIST _broken_gen)
-  message(STATUS "CMake at least through 3.16.3 and Make have a bug with this Fortran Syntax. CMake + Ninja works OK.")
-  return()
-endif()
-
-add_executable(repeated parent2.f90 child2.f90)
-add_test(NAME Repeated COMMAND repeated)
-
 add_executable(basic basic.f90 basic_sub.f90)
 add_test(NAME TwoFiles COMMAND basic)
 
@@ -33,3 +28,18 @@ add_test(NAME BasicPoints COMMAND points_basic)
 
 add_executable(overspec main1.f90 parent1.f90 child1.f90)
 add_test(NAME OverSpecified COMMAND overspec)
+
+set(_broken_gen "MinGW Makefiles" "Unix Makefiles")
+
+if(CMAKE_GENERATOR IN_LIST _broken_gen)
+  message(STATUS "CMake at least through 3.20.1 and Make have a bug with this Fortran Syntax. CMake + Ninja works OK.")
+  return()
+endif()
+
+# This passes, perhaps doesn't use Make?
+# file(READ repeated.f90 src)
+# check_fortran_source_compiles(${src} repeated_defn SRC_EXT f90)
+
+
+add_executable(repeated repeated.f90)
+add_test(NAME Repeated COMMAND repeated)

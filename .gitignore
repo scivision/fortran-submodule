@@ -1,5 +1,4 @@
-build/
-bin/
+build*/
 
 # Prerequisites
 *.d
@@ -7,8 +6,6 @@ bin/
 # Compiled Object files
 *.slo
 *.lo
-*.o
-*.obj
 
 # Precompiled Headers
 *.gch
@@ -19,17 +16,8 @@ bin/
 *.dylib
 *.dll
 
-# Fortran module files
-*.mod
-*.smod
-
 # Compiled Static libraries
 *.lai
 *.la
 *.a
 *.lib
-
-# Executables
-*.exe
-*.out
-*.app
