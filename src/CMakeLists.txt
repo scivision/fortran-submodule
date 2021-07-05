@@ -1,8 +1,3 @@
-include(CheckFortranSourceCompiles)
-
-file(READ same.f90 src)
-check_fortran_source_compiles(${src} same_name SRC_EXT f90)
-
 add_executable(hier grandchild.f90 child.f90 parent.f90 greatgrandchild.f90)
 add_test(NAME Hierarchal COMMAND hier)
 
@@ -38,7 +33,7 @@ endif()
 
 # This passes, perhaps doesn't use Make?
 # file(READ repeated.f90 src)
-# check_fortran_source_compiles(${src} repeated_defn SRC_EXT f90)
+# check_source_compiles(Fortran ${src} repeated_defn)
 
 
 add_executable(repeated repeated.f90)
