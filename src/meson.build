@@ -1,6 +1,3 @@
-fc = meson.get_compiler('fortran')
-fc.links(files('same.f90'), name: 'Same Name module,submodule')
-
 hier = executable('hier',
   sources: ['parent.f90', 'child.f90', 'greatgrandchild.f90', 'grandchild.f90'])
 test('Hierarchal submodule', hier, timeout: 10)

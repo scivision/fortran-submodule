@@ -27,7 +27,8 @@ add_test(NAME OverSpecified COMMAND overspec)
 set(_broken_gen "MinGW Makefiles" "Unix Makefiles")
 
 if(CMAKE_GENERATOR IN_LIST _broken_gen)
-  message(STATUS "CMake at least through 3.20.1 and Make have a bug with this Fortran Syntax. CMake + Ninja works OK.")
+  message(STATUS "Please use Ninja for the 'repeated' example
+    cmake -G Ninja -B build")
   return()
 endif()
 
