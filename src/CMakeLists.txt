@@ -24,7 +24,7 @@ add_test(NAME BasicPoints COMMAND points_basic)
 add_executable(overspec main1.f90 parent1.f90 child1.f90)
 add_test(NAME OverSpecified COMMAND overspec)
 
-set(_broken_gen "MinGW Makefiles" "Unix Makefiles")
+set(_broken_gen "MinGW Makefiles;Unix Makefiles")
 
 if(CMAKE_GENERATOR IN_LIST _broken_gen)
   message(STATUS "Please use Ninja for the 'repeated' example
