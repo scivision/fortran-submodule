@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+authors:
+  - family-names: Hirsch
+    given-names: Michael
+    orcid: https://orcid.org/0000-0002-1637-6526
+title: fortran-submodule
+doi: 10.5281/zenodo.4699819
+date-released: 2021-12-01

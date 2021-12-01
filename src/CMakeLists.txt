@@ -1,3 +1,5 @@
+set_directory_properties(PROPERTIES labels submodule)
+
 add_executable(hier grandchild.f90 child.f90 parent.f90 greatgrandchild.f90)
 add_test(NAME Hierarchal COMMAND hier)
 
@@ -24,18 +26,15 @@ add_test(NAME BasicPoints COMMAND points_basic)
 add_executable(overspec main1.f90 parent1.f90 child1.f90)
 add_test(NAME OverSpecified COMMAND overspec)
 
-set(_broken_gen "MinGW Makefiles;Unix Makefiles")
-
-if(CMAKE_GENERATOR IN_LIST _broken_gen)
+if(CMAKE_GENERATOR MATCHES "Makefiles$")
   message(STATUS "Please use Ninja for the 'repeated' example
     cmake -G Ninja -B build")
-  return()
+  set(broken_gen 1)
+else()
+  set(broken_gen 0)
 endif()
 
-# This passes, perhaps doesn't use Make?
-# file(READ repeated.f90 src)
-# check_source_compiles(Fortran ${src} repeated_defn)
-
-
 add_executable(repeated repeated.f90)
+set_target_properties(repeated PROPERTIES EXCLUDE_FROM_ALL ${broken_gen})
 add_test(NAME Repeated COMMAND repeated)
+set_tests_properties(Repeated PROPERTIES DISABLED ${broken_gen})

@@ -13,8 +13,6 @@ A simulation could have different proprietary or open source modules switched in
 In general, Fortran compilers have good submodule support.
 This includes gfortran, Intel ifort, nagfor, flang, PGI, IBM, Cray, etc.
 
-## Examples
-
 Meson and CMake are two build systems that support Fortran submodule.
 Look inside each example to understand basic use of Fortran submodule.
 
@@ -25,7 +23,7 @@ cmake -B build
 cmake --build build
 ```
 
-### Meson
+or use Meson:
 
 ```sh
 meson build
