@@ -20,13 +20,13 @@ print *,'hi from module b, submodule d'
 end procedure d
 end submodule c
 
-submodule (b) b
+submodule (b) bs
 implicit none
 contains
 module procedure samename
-print *,'hi from module b, submodule b'
+print *,'hi from module b, submodule bs'
 end procedure samename
-end submodule b
+end submodule bs
 
 program a
 use b
