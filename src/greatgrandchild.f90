@@ -1,4 +1,4 @@
-submodule (parent_hier:grandchild_hier) greatgrandchild_hier
+submodule (parent_hier:child_hier) greatgrandchild_hier
 
 implicit none
 
