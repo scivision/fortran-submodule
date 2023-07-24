@@ -1,4 +1,5 @@
 subdir('hierarchy')
+subdir('overspecified')
 
 basic = executable('basic',
 sources: ['basic.f90', 'basic_sub.f90']
@@ -20,10 +21,5 @@ test('Minimal same-file submodule', minimal)
 
 repeat = executable('repeated', 'repeated.f90')
 test('Repeated interface in submodule', repeat)
-
-overspec = executable('overspec',
-sources: ['main1.f90', 'parent1.f90', 'child1.f90']
-)
-test('Overspecified', overspec)
 
 ext_lib = library('math_const', 'math_const.f90')  # for subproject demo

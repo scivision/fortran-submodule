@@ -1,6 +1,7 @@
 set_property(DIRECTORY PROPERTY LABELS submodule)
 
 add_subdirectory(hierarchy)
+add_subdirectory(overspecified)
 
 add_executable(new points.f90 geo.f90)
 add_test(NAME PointsNew COMMAND new)
@@ -15,9 +16,6 @@ add_test(NAME TwoFiles COMMAND basic)
 
 add_executable(points_basic points_basic.f90 geo_basic.f90)
 add_test(NAME BasicPoints COMMAND points_basic)
-
-add_executable(overspec main1.f90 parent1.f90 child1.f90)
-add_test(NAME OverSpecified COMMAND overspec)
 
 if(CMAKE_GENERATOR MATCHES "Makefiles$")
   message(STATUS "Please use Ninja for the 'repeated' example

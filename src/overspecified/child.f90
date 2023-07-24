@@ -1,4 +1,4 @@
-submodule(parent1) child1
+submodule (parent1) child1
 
 implicit none
 
