@@ -20,6 +20,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - run: cmake -B build
-    - run: cmake --build build
-    - run: ctest --test-dir build -V
+    - run: cmake --workflow --preset default
