@@ -9,3 +9,6 @@ sources: 'overspec.f90',
 link_with: overspec
 )
 test('Overspecified', overspec_exe)
+
+repeat = executable('repeated', 'repeated.f90')
+test('Repeated interface in submodule', repeat)

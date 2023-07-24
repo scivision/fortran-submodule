@@ -19,7 +19,4 @@ test('Points', points)
 minimal = executable('minimal', 'minimal.f90')
 test('Minimal same-file submodule', minimal)
 
-repeat = executable('repeated', 'repeated.f90')
-test('Repeated interface in submodule', repeat)
-
 ext_lib = library('math_const', 'math_const.f90')  # for subproject demo
