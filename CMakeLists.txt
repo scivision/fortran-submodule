@@ -21,5 +21,6 @@ set(CMAKE_Fortran_MODULE_DIRECTORY ${PROJECT_BINARY_DIR}/include)
 message(STATUS "CMake ${CMAKE_VERSION}  Fortran module directory ${CMAKE_Fortran_MODULE_DIRECTORY}")
 
 add_subdirectory(src)
+add_subdirectory(test)
 
 file(GENERATE OUTPUT .gitignore CONTENT "*")

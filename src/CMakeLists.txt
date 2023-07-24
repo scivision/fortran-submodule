@@ -1,7 +1,6 @@
-set_directory_properties(PROPERTIES labels submodule)
+set_property(DIRECTORY PROPERTY LABELS submodule)
 
-add_executable(hier grandchild.f90 child.f90 parent.f90 greatgrandchild.f90)
-add_test(NAME Hierarchal COMMAND hier)
+add_subdirectory(hierarchy)
 
 add_executable(new points.f90 geo.f90)
 add_test(NAME PointsNew COMMAND new)
